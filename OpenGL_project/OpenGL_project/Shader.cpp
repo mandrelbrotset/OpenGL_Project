@@ -32,8 +32,8 @@ Shader::Shader(const GLchar *vertexPath, const GLchar *fragmentPath){
 	}
 	const GLchar *vShaderCode = vertexCode.c_str();
 	const GLchar *fShaderCode = fragmentCode.c_str();
+	
 	// 2. Compile shaders
-	GLuint vertex, fragment;
 	GLint success;
 	GLchar infoLog[512];
 	// Vertex Shader
@@ -58,6 +58,8 @@ Shader::Shader(const GLchar *vertexPath, const GLchar *fragmentPath){
 		glGetShaderInfoLog(fragment, 512, NULL, infoLog);
 		std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
 	}
+	
+	/*
 	// Shader Program
 	this->Program = glCreateProgram();
 	glAttachShader(this->Program, vertex);
@@ -73,8 +75,20 @@ Shader::Shader(const GLchar *vertexPath, const GLchar *fragmentPath){
 	// Delete the shaders as they're linked into our program now and no longer necessery
 	glDeleteShader(vertex);
 	glDeleteShader(fragment);
+	*/
 }
-	// Uses the current shader
+
+vertexFragmentShader Shader::getCompiledShaders() {
+	vertexFragmentShader temp;
+	temp.vertex = vertex;
+	temp.fragment = fragment;
+
+	return temp;
+}
+
+// Uses the current shader
+/*
 void Shader::use(){
 	glUseProgram(this->Program);
 }
+*/

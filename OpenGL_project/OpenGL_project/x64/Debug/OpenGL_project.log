@@ -1,0 +1,39 @@
+﻿  DrawShapes.cpp
+  Shader.cpp
+  Source.cpp
+  Generating Code...
+Shader.obj : error LNK2001: unresolved external symbol __imp___glewAttachShader
+Shader.obj : error LNK2001: unresolved external symbol __imp___glewCompileShader
+Shader.obj : error LNK2001: unresolved external symbol __imp___glewCreateProgram
+Shader.obj : error LNK2001: unresolved external symbol __imp___glewCreateShader
+Shader.obj : error LNK2001: unresolved external symbol __imp___glewDeleteShader
+Shader.obj : error LNK2001: unresolved external symbol __imp___glewGetProgramInfoLog
+Shader.obj : error LNK2001: unresolved external symbol __imp___glewGetProgramiv
+Shader.obj : error LNK2001: unresolved external symbol __imp___glewGetShaderInfoLog
+Shader.obj : error LNK2001: unresolved external symbol __imp___glewGetShaderiv
+Shader.obj : error LNK2001: unresolved external symbol __imp___glewLinkProgram
+Shader.obj : error LNK2001: unresolved external symbol __imp___glewShaderSource
+Shader.obj : error LNK2001: unresolved external symbol __imp___glewUseProgram
+Source.obj : error LNK2019: unresolved external symbol __imp_glewInit referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwInit referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwTerminate referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwWindowHint referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwGetFramebufferSize referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function main
+Source.obj : error LNK2019: unresolved external symbol glfwSwapBuffers referenced in function main
+Source.obj : error LNK2001: unresolved external symbol __imp___glewBindBuffer
+Source.obj : error LNK2001: unresolved external symbol __imp___glewBufferData
+Source.obj : error LNK2001: unresolved external symbol __imp___glewDeleteBuffers
+Source.obj : error LNK2001: unresolved external symbol __imp___glewGenBuffers
+Source.obj : error LNK2001: unresolved external symbol __imp___glewEnableVertexAttribArray
+Source.obj : error LNK2001: unresolved external symbol __imp___glewVertexAttribPointer
+Source.obj : error LNK2001: unresolved external symbol __imp___glewBindVertexArray
+Source.obj : error LNK2001: unresolved external symbol __imp___glewDeleteVertexArrays
+Source.obj : error LNK2001: unresolved external symbol __imp___glewGenVertexArrays
+Source.obj : error LNK2001: unresolved external symbol __imp_glewExperimental
+C:\Users\Olaoye\projects\opengl\OpenGL_Project\OpenGL_project\lib\glew32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\Olaoye\projects\opengl\OpenGL_Project\OpenGL_project\lib\glfw3.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\Olaoye\projects\opengl\OpenGL_Project\OpenGL_project\x64\Debug\OpenGL_project.exe : fatal error LNK1120: 32 unresolved externals
