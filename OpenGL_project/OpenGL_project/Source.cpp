@@ -8,7 +8,7 @@
 #include <GLFW/glfw3.h>
 
 #include "Shader.h"
-#include "DrawShapes.h"
+//#include "DrawShapes.h"
 
 // Window dimensions
 const GLuint WIDTH = 800, HEIGHT = 600;
@@ -55,7 +55,6 @@ int main()
 	// Define the viewport dimensions
 	glViewport(0, 0, screenWidth, screenHeight);
 
-	/*
 	const char *vertexShader = "vertexShader.txt";
 	const char *fragmentShader = "fragmentShader.txt";
 
@@ -86,12 +85,12 @@ int main()
 	glEnableVertexAttribArray(1);
 
 	glBindVertexArray(0); // Unbind VAO (it's always a good thing to unbind any buffer/array to prevent strange bugs)
-	*/
 
+	/*
 	DrawShapes shape;
 	shape.setupTriangle("vertexShader.txt", "fragmentShader.txt");
 	shape.linkProgram();
-
+	*/
 	// Game loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -104,20 +103,20 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		// Draw our first triangle
-		// ourShader.use();
-		shape.draw();
+		ourShader.use();
+		//shape.draw();
 
-		//glBindVertexArray(VAO);
-		//glDrawArrays(GL_TRIANGLES, 0, 3);
-		//glBindVertexArray(0);
+		glBindVertexArray(VAO);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glBindVertexArray(0);
 
 		// Swap the screen buffers
 		glfwSwapBuffers(window);
 	}
 
 	// Properly de-allocate all resources once they've outlived their purpose
-	// glDeleteVertexArrays(1, &VAO);
-	// glDeleteBuffers(1, &VBO);
+	glDeleteVertexArrays(1, &VAO);
+	glDeleteBuffers(1, &VBO);
 
 	// Terminate GLFW, clearing any resources allocated by GLFW.
 	glfwTerminate();

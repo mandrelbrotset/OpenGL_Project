@@ -7,12 +7,7 @@
 class DrawShapes: public Shader
 {
 public:
-	GLuint VBO, VAO;
-	void setupTriangle(const char *, const char *);
-	void draw();
-	void linkProgram();
-	DrawShapes();
-	~DrawShapes();
+
 };
 
 #endif // !DrawShapes_h
