@@ -6,6 +6,7 @@
 
 // GLFW
 #include <GLFW/glfw3.h>
+#include <SOIL2/SOIL2.h>
 
 #include "Shader.h"
 #include "DrawShapes.h"
@@ -54,6 +55,9 @@ int main()
 
 	// Define the viewport dimensions
 	glViewport(0, 0, screenWidth, screenHeight);
+	// enable alpha support for image format like png
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	const char *vertexShader = "../resources/shaders/triangleVertexShader.txt";
 	const char *fragmentShader = "../resources/shaders/triangleFragmentShader.txt";

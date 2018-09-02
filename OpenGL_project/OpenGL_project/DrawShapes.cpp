@@ -69,6 +69,16 @@ void DrawShapes::drawTriangle(){
 	glBindVertexArray(0);
 }
 
+
+void DrawShapes::setupTexturedRect() {
+
+}
+
+void DrawShapes::drawTexturedRect() {
+
+}
+
+
 DrawShapes::~DrawShapes(){
 	// Properly de-allocate all resources once they've outlived their purpose
 	glDeleteVertexArrays(1, &VAO);

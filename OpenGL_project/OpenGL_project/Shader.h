@@ -19,7 +19,6 @@ private:
 public:
 	Shader(const GLchar *vertexPath, const GLchar *fragmentPath);
 	vertexFragmentShader getCompiledShaders();
-	// void use();
 };
 
 #endif // !Shader_h

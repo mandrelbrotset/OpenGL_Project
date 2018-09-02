@@ -19,6 +19,8 @@ public:
 	void use();
 	void setupTriangle();
 	void drawTriangle();
+	void setupTexturedRect();
+	void drawTexturedRect();
 	~DrawShapes();
 };
 
