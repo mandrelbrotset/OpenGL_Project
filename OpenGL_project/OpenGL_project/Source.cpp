@@ -55,8 +55,8 @@ int main()
 	// Define the viewport dimensions
 	glViewport(0, 0, screenWidth, screenHeight);
 
-	const char *vertexShader = "triangleVertexShader.txt";
-	const char *fragmentShader = "triangleFragmentShader.txt";
+	const char *vertexShader = "../resources/shaders/triangleVertexShader.txt";
+	const char *fragmentShader = "../resources/shaders/triangleFragmentShader.txt";
 
 	//-------------
 	DrawShapes shape(vertexShader, fragmentShader);
@@ -75,9 +75,6 @@ int main()
 		// Clear the colorbuffer
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
-
-		// Draw our first triangle
-		//ourShader.use();
 
 		//-------------
 		shape.use();
