@@ -17,4 +17,4 @@ A 3D graphics program made using OpenGL.
 ....*drawTriangle() - draws a triangle
 ....*setupTexturedRect() - sets up vertices and textures for a rectangle with texture
 ....*drawTexturedRect() - draws the textured ractangle
-....*~DrawShapes() - deletes 
+....*~DrawShapes() - cleans up
