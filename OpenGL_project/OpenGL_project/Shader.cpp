@@ -2,20 +2,18 @@
 
 // Constructor generates the shader on the fly
 Shader::Shader(const GLchar *vertexPath, const GLchar *fragmentPath){
-	// 1. Retrieve the vertex/fragment source code from filePath
-	std::string vertexCode;
-	std::string fragmentCode;
-	std::ifstream vShaderFile;
-	std::ifstream fShaderFile;
+	// Retrieve the vertex/fragment source code from filePath
+	ifstream vShaderFile;
+	ifstream fShaderFile;
 	// ensures ifstream objects can throw exceptions:
-	vShaderFile.exceptions(std::ifstream::badbit);
-	fShaderFile.exceptions(std::ifstream::badbit);
+	vShaderFile.exceptions(ifstream::badbit);
+	fShaderFile.exceptions(ifstream::badbit);
 	try
 	{
 		// Open files
 		vShaderFile.open(vertexPath);
 		fShaderFile.open(fragmentPath);
-		std::stringstream vShaderStream, fShaderStream;
+		stringstream vShaderStream, fShaderStream;
 		// Read file's buffer contents into streams
 		vShaderStream << vShaderFile.rdbuf();
 		fShaderStream << fShaderFile.rdbuf();
@@ -26,16 +24,20 @@ Shader::Shader(const GLchar *vertexPath, const GLchar *fragmentPath){
 		vertexCode = vShaderStream.str();
 		fragmentCode = fShaderStream.str();
 	}
-	catch (std::ifstream::failure e)
+	catch (ifstream::failure e)
 	{
-		std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
+		cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << endl;
 	}
-	const GLchar *vShaderCode = vertexCode.c_str();
-	const GLchar *fShaderCode = fragmentCode.c_str();
-	
-	// 2. Compile shaders
+
+	vShaderCode = vertexCode.c_str();
+	fShaderCode = fragmentCode.c_str();
+}
+
+void Shader::compile() {
+	// Compile shaders
 	GLint success;
 	GLchar infoLog[512];
+	
 	// Vertex Shader
 	vertex = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertex, 1, &vShaderCode, NULL);
@@ -45,8 +47,9 @@ Shader::Shader(const GLchar *vertexPath, const GLchar *fragmentPath){
 	if (!success)
 	{
 		glGetShaderInfoLog(vertex, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+		cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << endl;
 	}
+
 	// Fragment Shader
 	fragment = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(fragment, 1, &fShaderCode, NULL);
@@ -56,8 +59,15 @@ Shader::Shader(const GLchar *vertexPath, const GLchar *fragmentPath){
 	if (!success)
 	{
 		glGetShaderInfoLog(fragment, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+		cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << endl;
 	}
+}
+
+void Shader::printShaderFile() {
+	cout << "Vertex Shader code" << endl;
+	cout << vertexCode << endl;
+	cout << "Fragment Shader code" << endl;
+	cout << fragmentCode << endl;
 }
 
 vertexFragmentShader Shader::getCompiledShaders() {

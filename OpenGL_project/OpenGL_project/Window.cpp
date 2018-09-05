@@ -16,10 +16,7 @@ Window::Window(const GLuint width, const GLuint height, const char *name = "Wind
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
 	// Create a GLFWwindow object that we can use for GLFW's functions
-	window = glfwCreateWindow(windowWidth, windowHeight, windowName, nullptr, nullptr);
-
-	int screenWidth, screenHeight;
-	glfwGetFramebufferSize(window, &screenWidth, &screenHeight);
+	this->window = glfwCreateWindow(windowWidth, windowHeight, windowName, nullptr, nullptr);
 
 	if (nullptr == window)
 	{
@@ -29,7 +26,10 @@ Window::Window(const GLuint width, const GLuint height, const char *name = "Wind
 		exitFailure();
 	}
 
-	glfwMakeContextCurrent(window);
+	int screenWidth, screenHeight;
+	glfwGetFramebufferSize(this->window, &screenWidth, &screenHeight);
+
+	glfwMakeContextCurrent(this->window);
 
 	// Set this to true so GLEW knows to use a modern approach to retrieving function pointers and extensions
 	glewExperimental = GL_TRUE;
@@ -46,7 +46,6 @@ Window::Window(const GLuint width, const GLuint height, const char *name = "Wind
 	// enable alpha support for image format like png
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
 }
 
 int Window::exitFailure() {
@@ -54,14 +53,14 @@ int Window::exitFailure() {
 }
 
 bool Window::isNotClosed() {
-	return !glfwWindowShouldClose(window);
+	return !glfwWindowShouldClose(this->window);
 }
 
 void Window::swapBuffers() {
-	glfwSwapBuffers(window);
+	glfwSwapBuffers(this->window);
 }
 
 Window::~Window()
 {
-	glfwDestroyWindow(window);
+	glfwDestroyWindow(this->window);
 }

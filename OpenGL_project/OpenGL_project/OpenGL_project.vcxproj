@@ -135,15 +135,22 @@
     <ClCompile Include="DrawShapes.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="stb_image.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DrawShapes.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shader.h" />
-    <ClInclude Include="stb_image.h" />
     <ClInclude Include="Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\textured.frs" />
+    <None Include="res\shaders\textured.vs" />
+    <None Include="res\shaders\triangle.vshader" />
+    <None Include="res\shaders\triangle.fshader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\images\ubuntu.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,7 +4,6 @@
 #include "Shader.h"
 #include <GL\glew.h>
 #include "CompiledShaders.h"
-#include <SOIL2\SOIL2.h>
 
 class DrawShapes{
 private:
@@ -12,7 +11,6 @@ private:
 	GLint success;
 	GLchar infoLog[512];
 	GLuint VBO, VAO, EBO;
-	GLuint texture;
 
 public:
 	GLuint Program;
@@ -21,8 +19,8 @@ public:
 	void use();
 	void setupTriangle();
 	void drawTriangle();
-	void setupTexturedRect(string texturePath);
-	void drawTexturedRect();
+	void setupQuad();
+	void drawQuad();
 	~DrawShapes();
 };
 
