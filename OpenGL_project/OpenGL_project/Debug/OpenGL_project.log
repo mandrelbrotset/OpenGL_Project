@@ -1,5 +1,4 @@
-﻿  DrawShapes.cpp
-  Shader.cpp
-  Source.cpp
-  Generating Code...
-  OpenGL_project.vcxproj -> C:\Users\Olaoye\projects\opengl\OpenGL_Project\OpenGL_project\Debug\OpenGL_project.exe
+﻿LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+DrawShapes.obj : error LNK2019: unresolved external symbol _SOIL_load_image referenced in function "public: void __thiscall DrawShapes::setupTexturedRect(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?setupTexturedRect@DrawShapes@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+DrawShapes.obj : error LNK2019: unresolved external symbol _SOIL_free_image_data referenced in function "public: void __thiscall DrawShapes::setupTexturedRect(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?setupTexturedRect@DrawShapes@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+C:\Users\Olaoye\projects\opengl\OpenGL_Project\OpenGL_project\Debug\OpenGL_project.exe : fatal error LNK1120: 2 unresolved externals
