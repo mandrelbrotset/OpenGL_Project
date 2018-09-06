@@ -1,2 +1,5 @@
-﻿  DrawShapes.cpp
-  OpenGL_project.vcxproj -> C:\Users\Olaoye\projects\opengl\opengl_project\OpenGL_project\Debug\OpenGL_project.exe
+﻿  Texture.cpp
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+libSOIL.a(stb_image_aug.o) : error LNK2019: unresolved external symbol __alloca referenced in function _stbi_zlib_decode_noheader_buffer
+libSOIL.a(image_helper.o) : error LNK2019: unresolved external symbol _sqrtf referenced in function _RGBE_to_RGBdivA2
+C:\Users\Olaoye\projects\opengl\opengl_project\OpenGL_project\Debug\OpenGL_project.exe : fatal error LNK1120: 2 unresolved externals
