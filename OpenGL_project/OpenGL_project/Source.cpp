@@ -26,12 +26,12 @@ int main()
 	//---------------------------------------
 	DrawShapes shape(vertexShader, fragmentShader);
 	shape.linkProgram();
-	shape.setupTriangle();
-	// shape.setupQuad();
+	//shape.setupTriangle();
+	shape.setupQuad();
 	//---------------------------------------
 
-	// store current time
-	auto t_start = chrono::high_resolution_clock::now();
+	// store current time(to change color with time)
+	//auto t_start = chrono::high_resolution_clock::now();
 
 	// Game loop
 	while (window.isNotClosed())
@@ -47,18 +47,18 @@ int main()
 
 		//-----------------------------------------------------
 		shape.use();
-		shape.drawTriangle();
-		//shape.drawQuad();
+		//shape.drawTriangle();
+		shape.drawQuad();
 
 		// get the uniform variable "ourColor" from the compiled shader
 		GLint uniColor = glGetUniformLocation(shape.Program, "ourColor");
 		// set the new value of "ourColor"
-		//glUniform3f(uniColor, 1.0f, 0.5f, 0.0f);
+		glUniform3f(uniColor, 1.0f, 0.5f, 0.0f);
 
 		// change color with time
-		auto t_now = chrono::high_resolution_clock::now();
-		float time = chrono::duration_cast<chrono::duration<float>>(t_now - t_start).count();
-		glUniform3f(uniColor, (sin(time * 4.0f) + 1.0f)/2.0f, 0.4f, 0.0f);
+		//auto t_now = chrono::high_resolution_clock::now();
+		//float time = chrono::duration_cast<chrono::duration<float>>(t_now - t_start).count();
+		//glUniform3f(uniColor, (sin(time * 4.0f) + 1.0f)/2.0f, 0.4f, 0.0f);
 
 		//-----------------------------------------------------
 
