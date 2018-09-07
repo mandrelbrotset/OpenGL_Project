@@ -4,6 +4,7 @@
 #include "Shader.h"
 #include <GL\glew.h>
 #include "CompiledShaders.h"
+#include "Texture.h"
 
 class DrawShapes{
 private:
@@ -11,6 +12,7 @@ private:
 	GLint success;
 	GLchar infoLog[512];
 	GLuint VBO, VAO, EBO;
+	GLuint texture2d;
 
 public:
 	GLuint Program;
@@ -21,6 +23,8 @@ public:
 	void drawTriangle();
 	void setupQuad();
 	void drawQuad();
+	void texturedQuad(string texturePath);
+	void drawTexturedQuad();
 	~DrawShapes();
 };
 

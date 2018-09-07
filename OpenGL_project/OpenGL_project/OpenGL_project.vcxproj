@@ -135,6 +135,7 @@
     <ClCompile Include="DrawShapes.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="stb_image.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
@@ -142,12 +143,13 @@
     <ClInclude Include="DrawShapes.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\shaders\textured.frs" />
-    <None Include="res\shaders\textured.vs" />
+    <None Include="res\shaders\textured.fshader" />
+    <None Include="res\shaders\textured.vshader" />
     <None Include="res\shaders\triangle.vshader" />
     <None Include="res\shaders\triangle.fshader" />
   </ItemGroup>

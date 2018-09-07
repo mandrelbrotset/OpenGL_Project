@@ -2,20 +2,20 @@
 
 #include <iostream>
 #include "GL/glew.h"
-#include "soil/SOIL.h"
+#include "stb_image.h"
 
 using namespace std;
 
 class Texture
 {
 private:
-	GLchar *texturePath;
-	GLuint *texture;
-	int width, height;
+	string texturePath;
+	GLuint texture;
+	int width, height, nrChannels;
 	unsigned char* image;
 
 public:
-	Texture(GLchar*);
+	Texture(string);
 	void loadTexture(GLuint);
 	GLuint getTexture();
 	~Texture();

@@ -20,18 +20,20 @@ int main()
 	// create a window with width 800, height 600 and name "Learn OpenGL"
 	Window window(800, 600, "Learn OpenGL");
 
-	const char *vertexShader = "res/shaders/triangle.vshader";
-	const char *fragmentShader = "res/shaders/triangle.fshader";
+	//const char *vertexShader = "res/shaders/triangle.vshader";
+	//const char *fragmentShader = "res/shaders/triangle.fshader";
+
+	const char *vertexShader = "res/shaders/textured.vshader";
+	const char *fragmentShader = "res/shaders/textured.fshader";
 
 	//---------------------------------------
 	DrawShapes shape(vertexShader, fragmentShader);
 	shape.linkProgram();
 	//shape.setupTriangle();
-	shape.setupQuad();
+	//shape.setupQuad();
+	//shape.texturedQuad("res/images/brickWall.jpg");
+	shape.texturedQuad("res/images/ubuntu.png");
 	//---------------------------------------
-
-	// store current time(to change color with time)
-	//auto t_start = chrono::high_resolution_clock::now();
 
 	// Game loop
 	while (window.isNotClosed())
@@ -48,17 +50,8 @@ int main()
 		//-----------------------------------------------------
 		shape.use();
 		//shape.drawTriangle();
-		shape.drawQuad();
-
-		// get the uniform variable "ourColor" from the compiled shader
-		GLint uniColor = glGetUniformLocation(shape.Program, "ourColor");
-		// set the new value of "ourColor"
-		glUniform3f(uniColor, 1.0f, 0.5f, 0.0f);
-
-		// change color with time
-		//auto t_now = chrono::high_resolution_clock::now();
-		//float time = chrono::duration_cast<chrono::duration<float>>(t_now - t_start).count();
-		//glUniform3f(uniColor, (sin(time * 4.0f) + 1.0f)/2.0f, 0.4f, 0.0f);
+		//shape.drawQuad();
+		shape.drawTexturedQuad();
 
 		//-----------------------------------------------------
 

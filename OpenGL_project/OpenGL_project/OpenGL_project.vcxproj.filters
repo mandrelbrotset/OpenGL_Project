@@ -29,6 +29,9 @@
     <ClCompile Include="Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stb_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
@@ -46,12 +49,15 @@
     <ClInclude Include="Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\shaders\textured.frs" />
-    <None Include="res\shaders\textured.vs" />
     <None Include="res\shaders\triangle.vshader" />
     <None Include="res\shaders\triangle.fshader" />
+    <None Include="res\shaders\textured.vshader" />
+    <None Include="res\shaders\textured.fshader" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\images\ubuntu.png" />
