@@ -60,6 +60,15 @@ void Window::swapBuffers() {
 	glfwSwapBuffers(this->window);
 }
 
+int Window::keyPressed() {
+	
+	return 1;
+}
+
+void Window::resetKeys() {
+	keys.reset();
+}
+
 Window::~Window()
 {
 	glfwDestroyWindow(this->window);
