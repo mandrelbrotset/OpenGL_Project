@@ -1,43 +1,9 @@
 #include "DrawShapes.h"
 
-DrawShapes::DrawShapes(const GLchar *vertexShader_path, const GLchar *fragmentShader_path) {
-	Shader shader(vertexShader_path, fragmentShader_path);
-	shader.compile();
-	// shader.printShaderFile();	// for debugging
-
-	vertexFragmentShader compiledShaders;
-	compiledShaders = shader.getCompiledShaders();
-	vertex = compiledShaders.vertex;
-	fragment = compiledShaders.fragment;
-}
-
-void DrawShapes::linkProgram() {
-	GLint success;
-	GLchar infoLog[512];
-
-	// Shader Program
-	this->Program = glCreateProgram();
-	glAttachShader(this->Program, vertex);
-	glAttachShader(this->Program, fragment);
-	glLinkProgram(this->Program);
-	// Print linking errors if any
-	glGetProgramiv(this->Program, GL_LINK_STATUS, &success);
-	if (!success)
-	{
-		glGetProgramInfoLog(this->Program, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
-	}
-	// Delete the shaders as they're linked into our program now and no longer necessery
-	glDeleteShader(vertex);
-	glDeleteShader(fragment);
-}
-
-void DrawShapes::use() {
-	glUseProgram(this->Program);
-}
+// DrawShapes::DrawShapes(){}
 
 // Set up vertex data (and buffer(s)) and attribute pointers
-void DrawShapes::setupTriangle() {
+void DrawShapes::setupTriangle(Shader shader) {
 	GLfloat vertices[] =
 	{
 		// position				// color
@@ -54,11 +20,11 @@ void DrawShapes::setupTriangle() {
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-	GLint posAttrib = glGetAttribLocation(Program, "position");
+	GLint posAttrib = glGetAttribLocation(shader.Program, "position");
 	glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid *)0);
 	glEnableVertexAttribArray(0);
 
-	GLint colorAttrib = glGetAttribLocation(Program, "color");
+	GLint colorAttrib = glGetAttribLocation(shader.Program, "color");
 	glVertexAttribPointer(colorAttrib, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid *)(3 * sizeof(GL_FLOAT)));
 	glEnableVertexAttribArray(1);
 
@@ -72,7 +38,7 @@ void DrawShapes::drawTriangle(){
 }
 
 
-void DrawShapes::setupQuad() {
+void DrawShapes::setupQuad(Shader shader) {
 	float vertices[] = {
 			// coord				// color
 		-0.5f,  0.5f, 0.0f,		1.0f, 0.0f, 0.0f, // Top-left
@@ -97,11 +63,11 @@ void DrawShapes::setupQuad() {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-	GLint posAttrib = glGetAttribLocation(Program, "position");
+	GLint posAttrib = glGetAttribLocation(shader.Program, "position");
 	glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid *)0);
 	glEnableVertexAttribArray(0);
 
-	GLint colorAttrib = glGetAttribLocation(Program, "color");
+	GLint colorAttrib = glGetAttribLocation(shader.Program, "color");
 	glVertexAttribPointer(colorAttrib, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid *)(3 * sizeof(GL_FLOAT)));
 	glEnableVertexAttribArray(1);
 }
@@ -111,7 +77,7 @@ void DrawShapes::drawQuad() {
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 
-void DrawShapes::texturedQuad(string textureFilePath) {
+void DrawShapes::texturedQuad(Shader shader, string textureFilePath) {
 	// vertices for quad
 	float vertices[] = {
 		// coord					// color		// texture coords
@@ -137,21 +103,21 @@ void DrawShapes::texturedQuad(string textureFilePath) {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-	GLint posAttrib = glGetAttribLocation(Program, "position");
+	GLint posAttrib = glGetAttribLocation(shader.Program, "position");
 	glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid *)0);
 	glEnableVertexAttribArray(posAttrib);
 
-	GLint colorAttrib = glGetAttribLocation(Program, "color");
+	GLint colorAttrib = glGetAttribLocation(shader.Program, "color");
 	glVertexAttribPointer(colorAttrib, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid *)(3 * sizeof(GL_FLOAT)));
 	glEnableVertexAttribArray(colorAttrib);
 
-	GLint textureAttrib = glGetAttribLocation(Program, "textCoord");
+	GLint textureAttrib = glGetAttribLocation(shader.Program, "textCoord");
 	glVertexAttribPointer(textureAttrib, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid *)(6 * sizeof(GL_FLOAT)));
 	glEnableVertexAttribArray(textureAttrib);
 
 	// load texture
 	Texture texture(textureFilePath);
-	texture.loadTexture(this->Program);
+	texture.loadTexture(shader.Program);
 
 	texture2d = texture.getTexture();
 }

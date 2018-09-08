@@ -3,11 +3,10 @@
 
 #include "Shader.h"
 #include <GL\glew.h>
-#include "CompiledShaders.h"
 #include "Texture.h"
 
 class DrawShapes{
-protected:
+private:
 	GLuint vertex, fragment;
 	GLint success;
 	GLchar infoLog[512];
@@ -15,15 +14,12 @@ protected:
 	GLuint texture2d;
 
 public:
-	GLuint Program;
-	DrawShapes(const GLchar *, const GLchar *);
-	void linkProgram();
-	void use();
-	void setupTriangle();
+	//DrawShapes();
+	void setupTriangle(Shader shader);
 	void drawTriangle();
-	void setupQuad();
+	void setupQuad(Shader shader);
 	void drawQuad();
-	void texturedQuad(string texturePath);
+	void texturedQuad(Shader shader, string texturePath);
 	void drawTexturedQuad();
 	~DrawShapes();
 };

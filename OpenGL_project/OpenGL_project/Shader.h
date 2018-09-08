@@ -6,7 +6,6 @@
 #include <sstream>
 #include <iostream>
 
-#include "CompiledShaders.h"
 #include <GL/glew.h>
 
 using namespace std;
@@ -19,12 +18,15 @@ private:
 	const GLchar *fShaderCode;
 	string vertexCode;
 	string fragmentCode;
+	GLint success;
+	GLchar infoLog[512];
 public:
 	Shader(const GLchar *vertexPath, const GLchar *fragmentPath);
+	GLuint Program;
 	void printShaderFile();
 	void compile();
-	// GLint getUniformLocation(GLuint programID, const char *);
-	vertexFragmentShader getCompiledShaders();
+	void linkProgram();
+	void use();
 };
 
 #endif // !Shader_h

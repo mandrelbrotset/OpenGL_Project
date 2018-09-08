@@ -1,11 +1,15 @@
 #pragma once
 
-#include "DrawShapes.h"
+#include "Shader.h"
+#include <GL\glew.h>
+#include "Texture.h"
 
-class Cube: public DrawShapes
-{
+class Cube{
+private:
+	GLuint VBO, VAO, EBO;
+	GLuint texture2d;
 public:
-	Cube(string textureFilePath);
+	Cube(Shader shader, string textureFilePath);
 	void drawCube();
 	~Cube();
 };
