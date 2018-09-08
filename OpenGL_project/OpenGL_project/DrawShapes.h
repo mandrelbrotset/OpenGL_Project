@@ -7,7 +7,7 @@
 #include "Texture.h"
 
 class DrawShapes{
-private:
+protected:
 	GLuint vertex, fragment;
 	GLint success;
 	GLchar infoLog[512];

@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CompiledShaders.h" />
+    <ClCompile Include="Cube.cpp" />
     <ClCompile Include="DrawShapes.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -140,6 +141,7 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cube.h" />
     <ClInclude Include="DrawShapes.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shader.h" />

@@ -43,6 +43,8 @@ Window::Window(const GLuint width, const GLuint height, const char *name = "Wind
 
 	// Define the viewport dimensions
 	glViewport(0, 0, screenWidth, screenHeight);
+	// enable depth support for 3d graphics
+	glEnable(GL_DEPTH_TEST);
 	// enable alpha support for image format like png
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
