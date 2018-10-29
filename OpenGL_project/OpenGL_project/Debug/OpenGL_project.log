@@ -1,15 +1,14 @@
 ﻿  Camera.cpp
-c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\camera.cpp(117): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\camera.cpp(118): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\camera.cpp(123): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\camera.cpp(102): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\camera.cpp(103): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\camera.cpp(108): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
   Window.cpp
   main.cpp
-c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\main.cpp(184): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\main.cpp(185): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\main.cpp(189): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\main.cpp(190): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\main.cpp(192): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\main.cpp(193): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\main.cpp(200): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\main.cpp(181): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\main.cpp(182): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\main.cpp(186): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\main.cpp(187): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\main.cpp(189): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\olaoye\projects\opengl\opengl_project\opengl_project\opengl_project\main.cpp(190): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
   Generating Code...
   OpenGL_project.vcxproj -> C:\Users\Olaoye\projects\opengl\opengl_project\OpenGL_project\Debug\OpenGL_project.exe

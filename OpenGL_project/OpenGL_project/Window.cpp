@@ -28,14 +28,6 @@ Window::Window(const GLuint width, const GLuint height, const char *name)
 
 	int screenWidth, screenHeight;
 	glfwGetFramebufferSize(this->window, &screenWidth, &screenHeight);
-
-	//---------------------------------------------------------
-	// Set the required callback functions
-	//glfwSetKeyCallback(window, this->KeyCallback);
-	//glfwSetCursorPosCallback(window, this->MouseCallback);
-	//glfwSetScrollCallback(window, this->ScrollCallback);
-	//---------------------------------------------------------
-
 	glfwMakeContextCurrent(this->window);
 
 	// Set this to true so GLEW knows to use a modern approach to retrieving function pointers and extensions

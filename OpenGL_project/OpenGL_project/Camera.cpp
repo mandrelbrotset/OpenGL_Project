@@ -81,21 +81,6 @@ void Camera::ProcessMouseMovement(GLfloat xOffset, GLfloat yOffset, GLboolean co
 	this->updateCameraVectors();
 }
 
-// Processes input received from a mouse scroll-wheel event. Only requires input on the vertical wheel-axis
-void Camera::ProcessMouseScroll(GLfloat yOffset){
-	if (this->zoom >= 1.0f && this->zoom <= 45.0f){
-		this->zoom -= yOffset;
-	}
-
-	if (this->zoom <= 1.0f){
-		this->zoom = 1.0f;
-	}
-
-	if (this->zoom >= 45.0f){
-		this->zoom = 45.0f;
-	}
-}
-
 GLfloat Camera::GetZoom(){
 		return this->zoom;
 }

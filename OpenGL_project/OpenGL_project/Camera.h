@@ -62,7 +62,6 @@ public:
 	glm::mat4 GetViewMatrix();
 	void ProcessKeyboard(Camera_Movement direction);
 	void ProcessMouseMovement(GLfloat xOffset, GLfloat yOffset, GLboolean constrainPitch=true);
-	void ProcessMouseScroll(GLfloat yOffset);
 	GLfloat GetZoom();
 	void setLastXY(const GLuint width, const GLuint height);
 	void updateFrameTime();

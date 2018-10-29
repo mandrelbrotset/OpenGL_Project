@@ -19,7 +19,6 @@ const GLuint WIDTH = 800;
 const GLuint HEIGHT = 600;
 
 void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode);
-void ScrollCallback(GLFWwindow *window, double xOffset, double yOffset);
 void MouseCallback(GLFWwindow *window, double xPos, double yPos);
 void DoMovement();
 
@@ -41,7 +40,6 @@ int main()
 	Window window(WIDTH, HEIGHT, "Learn OpenGL");
 	glfwSetKeyCallback(window.getWindow(), KeyCallback);
 	glfwSetCursorPosCallback(window.getWindow(), MouseCallback);
-	glfwSetScrollCallback(window.getWindow(), ScrollCallback);
 
 	//const char *vertexShader = "res/shaders/triangle.vshader";
 	//const char *fragmentShader = "res/shaders/triangle.fshader";
@@ -130,7 +128,6 @@ int main()
 			glDrawArrays(GL_TRIANGLES, 0, 36);
 		}
 
-
 		//-----------------------------------------------------
 
 		// Swap the screen buffers
@@ -193,9 +190,4 @@ void MouseCallback(GLFWwindow *window, double xPos, double yPos){
 	lastY = yPos;
 
 	camera.ProcessMouseMovement(xOffset, yOffset);
-}
-
-
-void ScrollCallback(GLFWwindow *window, double xOffset, double yOffset){
-	camera.ProcessMouseScroll(yOffset);
 }
