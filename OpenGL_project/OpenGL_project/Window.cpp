@@ -1,7 +1,7 @@
 #include "Window.h"
 
 
-Window::Window(const GLuint width, const GLuint height, const char *name = "Window")
+Window::Window(const GLuint width, const GLuint height, const char *name)
 	:windowWidth(width),windowHeight(height),windowName(name)
 {
 	// Init GLFW
@@ -28,6 +28,13 @@ Window::Window(const GLuint width, const GLuint height, const char *name = "Wind
 
 	int screenWidth, screenHeight;
 	glfwGetFramebufferSize(this->window, &screenWidth, &screenHeight);
+
+	//---------------------------------------------------------
+	// Set the required callback functions
+	//glfwSetKeyCallback(window, this->KeyCallback);
+	//glfwSetCursorPosCallback(window, this->MouseCallback);
+	//glfwSetScrollCallback(window, this->ScrollCallback);
+	//---------------------------------------------------------
 
 	glfwMakeContextCurrent(this->window);
 
@@ -60,15 +67,6 @@ bool Window::isNotClosed() {
 
 void Window::swapBuffers() {
 	glfwSwapBuffers(this->window);
-}
-
-int Window::keyPressed() {
-	
-	return 1;
-}
-
-void Window::resetKeys() {
-	keys.reset();
 }
 
 Window::~Window()
